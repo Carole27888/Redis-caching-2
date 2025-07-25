@@ -1,5 +1,5 @@
 import express from "express";
-import { clearCacheByPrefix } from "../utils/cache.js"; 
+import { clearCacheByPrefix } from "../redis-utils/cache.js"; 
 
 const router = express.Router();
 

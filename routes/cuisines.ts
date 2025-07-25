@@ -1,7 +1,7 @@
 import express from "express";
-import { initializeRedisClient } from "../utils/client.js";
-import { cuisineKey, cuisinesKey, restaurantKeyById } from "../utils/keys.js";
-import { successResponse } from "../utils/responses.js";
+import { initializeRedisClient } from "../redis-utils/client.js";
+import { cuisineKey, cuisinesKey, restaurantKeyById } from "../redis-utils/keys.js";
+import { successResponse } from "../redis-utils/responses.js";
 // import { cacheSet } from "../utils/cache.js"; //
 const router = express.Router();
 

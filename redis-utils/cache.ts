@@ -1,9 +1,8 @@
 import { initializeRedisClient } from "./client.js";
 import { CACHE_TTL, CACHE_PREFIX } from "./config.js";
 
-/**
- * Cache a hash with TTL
- */
+// Cache a hash with TTL
+ 
 export async function cacheHash(
   key: string,
   data: Record<string, string>,
@@ -16,9 +15,8 @@ export async function cacheHash(
 
 
 
-/**
- * Cache a set with TTL
- */
+// Cache a set with TTL
+ 
 export async function cacheSet(
   key: string,
   values: string[],
@@ -30,9 +28,8 @@ export async function cacheSet(
 }
 
 
-/**
- * Delete all cache keys by prefix
- */
+//Delete all cache keys by prefix
+ 
 export async function clearCacheByPrefix(
   prefix: string = `${CACHE_PREFIX}:*`
 ): Promise<number> {
