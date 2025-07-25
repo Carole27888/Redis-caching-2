@@ -1,7 +1,7 @@
 import type { Request, Response, NextFunction } from "express";
-import { initializeRedisClient } from "../utils/client.js";
-import { restaurantKeyById } from "../utils/keys.js";
-import { errorResponse } from "../utils/responses.js";
+import { initializeRedisClient } from "../redis-utils/client.js";
+import { restaurantKeyById } from "../redis-utils/keys.js";
+import { errorResponse } from "../redis-utils/responses.js";
 
 export const checkRestaurantExists = async (
   req: Request,

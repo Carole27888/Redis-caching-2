@@ -1,5 +1,5 @@
-import { initializeRedisClient } from "../utils/client.js";
-import { bloomKey } from "../utils/keys.js";
+import { initializeRedisClient } from "../redis-utils/client.js";
+import { bloomKey } from "../redis-utils/keys.js";
 
 async function createBloomFilter() {
   const client = await initializeRedisClient();

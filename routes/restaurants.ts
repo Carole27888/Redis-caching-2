@@ -9,9 +9,9 @@ import type { Restaurants } from "../schemas/restaurant.ts";
 import { checkRestaurantExists } from "../middlewares/checkRestrauntId.js";
 import { ReviewSchema } from "../schemas/review.js";
 import type { Review } from "../schemas/review.ts"
-import { reviewDetailsKeyById, reviewKeyById } from "../redis-utils";
+import { reviewDetailsKeyById, reviewKeyById } from "../redis-utils/keys.js";
 import { cacheHash } from "../redis-utils/cache.js";
-import { RestaurantModel } from "../models/Restaurant.ts";
+import { RestaurantModel } from "../models/Restaurant.js";
 
 const router = express.Router();
 

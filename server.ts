@@ -3,7 +3,7 @@ import restaurantsRouter from "./routes/restaurants.js"
 import cuisinesRouter from "./routes/cuisines.js"
 import { errorHandler } from "./middlewares/errorHandler.js"
 import "./cron/clearCache.js"
-import { connectToMongoDB } from "./utils/db.ts"
+import { connectToMongoDB } from "./redis-utils/db.js"
 
 const PORT = process.env.PORT || 3000
 const app = express();

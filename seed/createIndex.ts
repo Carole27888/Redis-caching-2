@@ -1,12 +1,13 @@
-import { SchemaFieldTypes } from "redis";
-import { initializeRedisClient } from "../utils/client.js";
-import { indexKey, getKeyName } from "../utils/keys.js";
+import { createClient } from "redis";
+import { initializeRedisClient } from "../redis-utils/client.js";
+import { indexKey, getKeyName } from "../redis-utils/keys.js";
 
 async function createIndex() {
   const client = await initializeRedisClient();
 
   try {
     await client.ft.dropIndex(indexKey);
+    console.log("Existing index dropped");
   } catch (err) {
     console.log("No existing index to delete");
   }
@@ -15,16 +16,15 @@ async function createIndex() {
     indexKey,
     {
       id: {
-        type: SchemaFieldTypes.TEXT,
+        type: "TEXT", 
         AS: "id",
       },
       name: {
-        type: SchemaFieldTypes.TEXT,
+        type: "TEXT", 
         AS: "name",
       },
       avgStars: {
-        type: SchemaFieldTypes.NUMERIC,
-        AS: "avgStars",
+        type: "NUMERIC", 
         SORTABLE: true,
       },
     },
@@ -33,7 +33,9 @@ async function createIndex() {
       PREFIX: getKeyName("restaurants"),
     }
   );
+
+  console.log("Index created successfully");
+  process.exit();
 }
 
 await createIndex();
-process.exit();
